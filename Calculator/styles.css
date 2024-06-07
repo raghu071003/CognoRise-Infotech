@@ -6,30 +6,36 @@
     box-sizing: border-box;
     font-family: 'Zen Dots', cursive;
 }
-html{
+
+html {
     --bg: #f1f1f1;
     --sec_bg: #fff;
     --color: #000;
     --hover_color: #e7e7e7;
 }
-body[data-theme="dark"]{
+
+body[data-theme="dark"] {
     --bg: #0e0e0e;
     --sec_bg: #222222;
     --color: #fff;
     --hover_color: #424242;
 }
-body{
+
+body {
     background: var(--bg);
 }
-.main{
+
+.main {
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.calculator{
+
+.calculator {
     width: 300px;
 }
+
 .header {
     width: 100%;
     height: 60px;
@@ -37,46 +43,22 @@ body{
     border-radius: 10px 10px 0 0;
     display: flex;
     align-items: center;
+    justify-content: center;
+    color: #f1f1f1;
 }
-.switchBox{
-    margin-left: 20px;
-    width: 60px;
-    height: 25px;
-    background: #d8d8d8;
-    border-radius: 20px;
-    position: relative;
-}
-.switchBox input{
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
-    position: absolute;
-    z-index: 100;
-    -webkit-appearance: none;
-}
-.switchBox .box {
-    position: absolute;
-    top: 10%;
-    left: 4px;
-    width: 20px;
-    height: 80%;
-    background: #6d6d6d;
-    border-radius: 20px;
-    transition: all .4s;
-}
-.switchBox input:checked ~ .box{
-    left: 60%;
-    background: #ff0303;
-}
-.input{
+
+
+.input {
     width: 100%;
     height: 60px;
     background: #fff;
 }
-input{
+
+input {
     cursor: pointer;
 }
-.input #display{
+
+.input #display {
     width: 74%;
     height: 60px;
     border: none;
@@ -84,7 +66,8 @@ input{
     font-size: 1.5rem;
     padding-left: 10px;
 }
-.cancel_btn{
+
+.cancel_btn {
     width: 24%;
     height: 60px;
     border: none;
@@ -92,11 +75,13 @@ input{
     font-size: 1.5rem;
     color: white;
 }
-.row{
+
+.row {
     width: 100%;
     margin: 10px 0;
 }
-.row input{
+
+.row input {
     width: 23.6%;
     height: 60px;
     background: var(--sec_bg);
@@ -104,9 +89,87 @@ input{
     border: 1px solid rgba(0, 0, 0, 0, 0.137);
     font-size: 1.5rem;
 }
-.active{
+
+.active {
     animation: anim .4s;
 }
-@keyframes anim{0%, 100%{transform: scale(1);}
-50%{transform: scale(1.1);background: var(--hover_color);}
+
+@keyframes anim {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+        background: var(--hover_color);
+    }
+}
+
+body {
+    margin: auto;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow: auto;
+    background: linear-gradient(315deg, rgba(101,0,94,1) 3%, rgba(60,132,206,1) 38%, rgba(48,238,226,1) 68%, rgba(255,25,25,1) 98%);
+    animation: gradient 15s ease infinite;
+    background-size: 400% 400%;
+    background-attachment: fixed;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+.wave {
+    background: rgb(255 255 255 / 25%);
+    border-radius: 1000% 1000% 0 0;
+    position: fixed;
+    width: 200%;
+    height: 12em;
+    animation: wave 10s -3s linear infinite;
+    transform: translate3d(0, 0, 0);
+    opacity: 0.8;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.wave:nth-of-type(2) {
+    bottom: -1.25em;
+    animation: wave 18s linear reverse infinite;
+    opacity: 0.8;
+}
+
+.wave:nth-of-type(3) {
+    bottom: -2.5em;
+    animation: wave 20s -1s reverse infinite;
+    opacity: 0.9;
+}
+
+@keyframes wave {
+    2% {
+        transform: translateX(1);
+    }
+
+    25% {
+        transform: translateX(-25%);
+    }
+
+    50% {
+        transform: translateX(-50%);
+    }
+
+    75% {
+        transform: translateX(-25%);
+    }
+
+    100% {
+        transform: translateX(1);
+    }
 }
